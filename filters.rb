@@ -1,15 +1,6 @@
 # In this file we define the methods to help filter out candidates
 # This way, we keep these methods separated from other potential parts of the program
 
-# {
-#   id: 5,
-#   years_of_experience: 4,
-#   github_points: 293,
-#   languages: ['C', 'Ruby', 'Python', 'Clojure'],
-#   date_applied: 5.days.ago.to_date,
-#   age: 26
-# },
-
 def find(id)
   candidates.each do |candidate|
     return candidate if candidate.id == id
@@ -56,8 +47,8 @@ def qualified?(candidate)
     is_18_or_older?(candidate)
 end
 
-def ordered_by_qualifications(candidates)
-  sorted_candidates = candidates.sort_by do |candidate|
+def ordered_by_qualifications(candidatesArray)
+  sorted_candidates = candidatesArray.sort_by do |candidate|
     [-candidate[:years_of_experience], -candidate[:github_points]]
   end
 end
